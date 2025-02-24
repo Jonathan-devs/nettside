@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Handelliste</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="handleliste.js"></script>
+</head>
+
+<body>
+    <form id="newRowForm"> <!--lagger ny form, for å lage ny produkt-->
+        <label for="name_input">Navn på vare</label>    <!--tittel til navn på produkt-->
+        <input type="text" id="name_input" required>    <!--boks for å skrive navn-->
+        <label for="pris_input">Prisen til vare</label> <!--Titel for å skrive in pris på produkt-->
+        <input  type="number" id="pris_input" required> <!--boks for å skrive pris på produkt-->
+        <input type="button" onclick="add_tolist()" value="Legg til i listen">  <!--Knapp for å legge til endringer-->
+<!--        <button type="button" onclick="add_tolist()"></button>-->
+    </form> <!--slutter form-->
+    <div class="spacer">
+        &nbsp;  <!--lagger et mellomrom, uten å legge til linjer-->
+    </div>
+
+
+
+    <button type="button" onclick="show_list()">Vis liste</button>  <!--knapp for å vise listen-->
+    <button type="button" onclick="hide_list()">Gjem liste</button> <!--knapp for å gjemme listen-->
+
+    <table id="table" > <!--lager en table-->
+        <tbody>         <!--lager boddyen til table-->
+
+            <tr>        <!--lager første rad-->
+                <th>produkt</th>
+                <th>mengde</th>
+                <th>enkelpris</th>
+                <th>sumpris</th>
+                <th>Slett</th>
+            </tr>
+            <tr>        <!--lager andre rad-->
+                <td><p>Ost</p></td> <!--navn på produkt-->
+                <td><input type="number" oninput="opptater_rad(this)"></td> <!--område som man putter in mengde av produkt, som vil opptatere siden på en endring-->
+                <td><p>10</p></td>  <!--pris på prdukt-->
+                <td><p>0</p></td>   <!--total prisen for mengde produkt ganger pris-->
+                <th><button type="button" onclick="delete_row(this)">Slett rad</button></th>    <!--knapp for å slette rad-->
+            </tr>
+            <tr>
+                <td><p>Agurk</p></td>
+                <td><input type="number" oninput="opptater_rad(this)"></td>
+                <td><p>40</p></td>
+                <td><p>0</p></td>
+                <th><button type="button" onclick="delete_row(this)">Slett rad</button></th>
+            </tr>
+            <tr>
+                <td><p>salat</p></td>
+                <td><input type="number" oninput="opptater_rad(this)"></td>
+                <td><p>20</p></td>
+                <td><p>0</p></td>
+                <th><button type="button" onclick="delete_row(this)">Slett rad</button></th>
+            </tr>
+        </tbody>
+    </table>
+
+    <h1 id="sum">Summen er: 0kr</h1>    <!--en sum av alle prduktene-->
+</body>
+</html>
